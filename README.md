@@ -19,9 +19,14 @@ It's simillar to a data structure called hash table. However, the implementation
 
 #### 2.1.1 Object Literals
 Just like we can create variables, we can create objects on the fly. An object literal can be created in serveral ways
-- Using curley braces {...}
-- Using `new Object()`
-- Using `Object.create()`
+
+● **Using curley braces {...}**
+```js
+const user = {
+    firstName: 'Naimul',
+    lastName: 'Haque',
+}
+```
 
 ### 2.2 Readings
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
