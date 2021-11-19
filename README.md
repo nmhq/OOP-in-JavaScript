@@ -15,18 +15,29 @@ In order to understand OOP in JavaScript, it’s important to understand the con
 
 It's simillar to a data structure called hash table. However, the implementation can vary on different JavaScript engines. 
 
-### 2.1 How to create objects?
+### 2.1 Ways for creating objects
 
 #### 2.1.1 Object Literals
 Just like we can create variables, we can create objects on the fly. An object literal can be created in serveral ways
 
-● **Using curley braces {...}**
-```js
-const user = {
-    firstName: 'Naimul',
-    lastName: 'Haque',
-}
-```
+- *Using curley braces `{}`*
+
+    ```js
+    const user = {
+        firstName: 'Naimul',
+        lastName: 'Haque',
+    }
+    console.log(user.firstName)
+    console.log(user['lastName'])
+    ```
+- Using `new Object()`
+    ```js
+    const user = new Object() /* creates an empty object */
+    user.firstName = "Naimul"
+    user["lastName"] = "Haque"
+    ```
+
+- Using `Object.create()` - It creates a new object, using an existing object as the prototype of the newly created object.
 
 ### 2.2 Readings
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
