@@ -20,7 +20,7 @@ It's simillar to a data structure called hash table. However, the implementation
 #### 2.1.1 Object Literals
 Just like we can create variables, we can create objects on the fly. An object literal can be created in serveral ways
 
-- *Using curley braces `{}`*
+- *Using curley braces {}*
 
     ```js
     const user = {
@@ -30,14 +30,14 @@ Just like we can create variables, we can create objects on the fly. An object l
     console.log(user.firstName)
     console.log(user['lastName'])
     ```
-- Using `new Object()`
+- *Using `new Object()`*
     ```js
     const user = new Object() /* creates an empty object */
     user.firstName = "Naimul"
     user["lastName"] = "Haque"
     ```
-
-- Using `Object.create()` - It creates a new object, using an existing object as the prototype of the newly created object.
+    
+- *Using `Object.create()`* - It creates a new object, using an existing object as the prototype of the newly created object.
 
 ### 2.2 Readings
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
