@@ -24,11 +24,11 @@ Just like we can create variables, we can create objects on the fly. An object l
 
     ```js
     const user = {
-        firstName: 'Naimul',
-        lastName: 'Haque',
+        firstName: "Naimul",
+        lastName: "Haque",
     }
     console.log(user.firstName)
-    console.log(user['lastName'])
+    console.log(user["lastName"])
     ```
 - *Using `new Object()`*
     ```js
