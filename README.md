@@ -48,5 +48,19 @@ user.firstName = "Naimul"
 user.lastName = "Haque"
 ```
 
+Now the problem with the above 2 approach is that, if we want to define more users we have to repeat the same codes which is not a good practice. So we can define a function which will create an object for us.
+
+```js
+function createUser(firstName, lastName) => {
+    const user = {}
+    user.firstName = firstName
+    user.lastName = lastName
+    return user
+}
+const user1 = createUser("Naimul", "Haque")
+const user2 = createUser("John", "Doe")
+```
+
+
 ### 2.2 Readings
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
