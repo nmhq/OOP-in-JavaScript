@@ -15,7 +15,7 @@ In order to understand OOP in JavaScript, it’s important to understand the con
 
 It's simillar to a data structure called hash table. However, the implementation can vary on different JavaScript engines. 
 
-### 2.1 Ways for creating objects
+### 2.1 Creating objects in JavaScript
 
 #### 2.1.1 Object Literals
 Just like we can create variables, we can create objects on the fly. An object literal can be created in serveral ways
