@@ -26,9 +26,13 @@ Just like we can create variables, we can create objects on the fly. An object l
     const user = {
         firstName: "Naimul",
         lastName: "Haque",
+        getFullName: function() {
+            return `${this.firstName} ${this.lastName}`
+        }
     }
     console.log(user.firstName)
     console.log(user["lastName"])
+    console.log(user.getFullName())
     ```
     
 - Using `new Object()`
@@ -36,6 +40,9 @@ Just like we can create variables, we can create objects on the fly. An object l
     const user = new Object() /* creates an empty object */
     user.firstName = "Naimul"
     user["lastName"] = "Haque"
+    user.getFullName = function() {
+        return `${this.firstName} ${this.lastName}`
+    }
     ```
     
 #### 2.1.2 Using `Object.create()`
@@ -46,6 +53,9 @@ It creates a new object, using an existing object as the prototype of the newly 
 const user = Object.create(null)
 user.firstName = "Naimul"
 user.lastName = "Haque"
+user.getFullName = function() {
+    return `${this.firstName} ${this.lastName}`
+}
 ```
 
 Now the problem with the above 2 approach is that, if we want to define more users we have to repeat the same codes which is not a good practice. So we can define a function which will create an object for us.
@@ -55,6 +65,9 @@ function createUser(firstName, lastName) => {
     const user = {}
     user.firstName = firstName
     user.lastName = lastName
+    user.getFullName = function() {
+        return `${this.firstName} ${this.lastName}`
+    }
     return user
 }
 const user1 = createUser("Naimul", "Haque")
