@@ -76,7 +76,7 @@ const user1 = createUser("Naimul", "Haque")
 const user2 = createUser("John", "Doe")
 ```
 
-We can create many users with this function. What if I told you, we can't use this in practice? The reason is simple, the `getFullName` method is created on the object everytime we create a new user. The `getFullName` method needs to be common between all users.
+We can create many users with this function. What if I told you, we can't use this in practice? The reason is simple, the `getFullName` method is created on the object everytime we create a new user. The `getFullName` is a common functionality and doesn't need to have its own copy it each object. So how do we share these common functionalities with the user objects we create?
 
 ### 2.2 Readings
 
