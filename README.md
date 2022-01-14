@@ -63,21 +63,37 @@ user.getFullName = function () {
 Now the problem with the above 2 approach is that, if we want to define more users we have to repeat the same codes which is not a good practice. So we can define a function which will create an object for us.
 
 ```js
-function createUser(firstName, lastName) => {
-    const user = {}
-    user.firstName = firstName
-    user.lastName = lastName
-    user.getFullName = function() {
-        return `${this.firstName} ${this.lastName}`
-    }
-    return user
+function createUser(firstName, lastName) {
+  const user = {};
+  user.firstName = firstName;
+  user.lastName = lastName;
+  user.getFullName = function () {
+    return `${this.firstName} ${this.lastName}`;
+  };
+  return user;
 }
-const user1 = createUser("Naimul", "Haque")
-const user2 = createUser("John", "Doe")
+const user1 = createUser("Naimul", "Haque");
+const user2 = createUser("John", "Doe");
 ```
 
 We can create many users with this function. What if I told you, we can't use this in practice? The reason is simple, the `getFullName` method is created on the object everytime we create a new user. The `getFullName` is a common functionality and doesn't need to have its own copy it each object. So how do we share these common functionalities with the user objects we create?
 
-### 2.2 Readings
+<!-- ## 2.2 Sharing common functionalities
+
+```js
+function createUser(firstName, lastName) {
+  const user = {};
+  user.firstName = firstName;
+  user.lastName = lastName;
+  return user;
+}
+``` -->
+
+<!-- ### 2.2 Introduction to prototypes
+
+#### 2.2.1 Functions are objects
+Before we dive into understanding prototypes, we need to understand that functions are objects behind the scene.
+
+### 2.3 Readings -->
 
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
