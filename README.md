@@ -78,7 +78,7 @@ const user2 = createUser("John", "Doe");
 
 We can create many users with this function. What if I told you, we can't use this in practice? The reason is simple, the `getFullName` method is created on the object everytime we create a new user. The `getFullName` is a common functionality and doesn't need to have its own copy it each object. So how do we share these common functionalities with the user objects we create?
 
-<!-- ## 2.2 Sharing common functionalities
+### 2.2 Sharing common functionalities
 
 ```js
 function createUser(firstName, lastName) {
@@ -87,7 +87,16 @@ function createUser(firstName, lastName) {
   user.lastName = lastName;
   return user;
 }
-``` -->
+const functionsToShare = {
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+```
+
+We've moved all the methods we want to share with users to another object. It's obvious that the `user` object doesn't know where to find the extra functionalities. So, we need to somehow create a link between the `functionsToShare` object and `user` objects. The question is how do we create the link?
+
+<!-- #### 2.2.1 Introducing `__proto__` -->
 
 <!-- ### 2.2 Introduction to prototypes
 
@@ -97,3 +106,9 @@ Before we dive into understanding prototypes, we need to understand that functio
 ### 2.3 Readings -->
 
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+```
