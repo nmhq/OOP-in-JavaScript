@@ -94,7 +94,7 @@ const functionsToShare = {
 };
 ```
 
-We've moved all the methods we want to share with users to another object. It's obvious that the `user` object doesn't know where to find the extra functionalities. So, we need to somehow create a link between the `functionsToShare` object and `user` objects. The question is how do we create the link?
+We've moved all the methods to another object. It's obvious that the `user` object doesn't know where to find the extra functionalities. So, we need to somehow create a link between the `functionsToShare` object and `user` objects. The question is how do we create the link?
 
 <!-- #### 2.2.1 Introducing `__proto__` -->
 
