@@ -96,7 +96,9 @@ const functionsToShare = {
 
 We've moved all the methods to another object. It's obvious that the `user` object doesn't know where to find the extra functionalities. So, we need to somehow create a link between the `functionsToShare` object and `user` objects. The question is how do we create the link?
 
-<!-- #### 2.2.1 Introducing `__proto__` -->
+#### 2.2.1 Introducing `__proto__`
+
+Every object in JavaScript gets a special propertly called `__proto__`. Suppose we are calling `user.isMarried`. The property doesn't exist on the user object. So instead of giving up, JavaScript will try to find it in `__proto__`. Same way if we can set user object's `__proto__` to be the `functionsToShare`, we are done.
 
 <!-- ### 2.2 Introduction to prototypes
 
