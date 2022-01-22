@@ -108,9 +108,3 @@ Before we dive into understanding prototypes, we need to understand that functio
 ### 2.3 Readings -->
 
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
-
-```js
-function sum(a, b) {
-  return a + b;
-}
-```
