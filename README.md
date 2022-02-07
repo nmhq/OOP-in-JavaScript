@@ -100,6 +100,21 @@ We've moved all the methods to another object. It's obvious that the `user` obje
 
 Every object in JavaScript gets a special propertly called `__proto__`. Suppose we are calling `user.isMarried`. The property doesn't exist on the user object. So instead of giving up, JavaScript will try to find it in `__proto__`. Now we need to set user object's `__proto__` to be the `functionsToShare`. How do we do that? Remember `Object.create()`? It returns a new object, but sets the `__proto__` of that object to be the object that we pass into this as argument.
 
+```js
+function createUser(firstName, lastName) {
+  // set user.__proto__ equal to functionsToShare
+  const user = Object.create(functionsToShare);
+  user.firstName = firstName;
+  user.lastName = lastName;
+  return user;
+}
+const functionsToShare = {
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+};
+```
+
 <!-- ### 2.2 Introduction to prototypes
 
 #### 2.2.1 Functions are objects
