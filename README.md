@@ -119,7 +119,8 @@ const functionsToShare = {
 
 #### 2.2.1 Functions are objects
 Before we dive into understanding prototypes, we need to understand that functions are objects behind the scene.
+-->
 
-### 2.3 Readings -->
+### 2.3 Readings
 
 [Performance of key lookup in JavaScript](https://stackoverflow.com/questions/7700987/performance-of-key-lookup-in-javascript-object)
