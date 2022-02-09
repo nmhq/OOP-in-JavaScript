@@ -115,6 +115,20 @@ const functionsToShare = {
 };
 ```
 
+This solution definitly works, but its a bit declarative. We are handcrafting everything like creating objects with a different `__proto__`. Now JavaScript gives us a way to automate these stuffs with the `new` keyword.
+
+#### 2.2.2 Functions are Objects
+
+Before we learn about the `new` keyword, we need to understand that functions are objects behind the scene. We can attach properties to functions. The following code looks a bit strange but it is indeed valid in JavaScript.
+
+```js
+function sum(a, b) {
+  return a + b;
+}
+sum.myName = "Naimul Haque";
+console.log(sum.myName);
+```
+
 <!-- ### 2.2 Introduction to prototypes
 
 #### 2.2.1 Functions are objects
