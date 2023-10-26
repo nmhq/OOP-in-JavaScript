@@ -141,7 +141,7 @@ const commonMethods = {
     },
     isAdult() {
         return this.age >= 18;
-    }
+    },
     greet() {
         console.log(`Hello, my name is ${this.getFullName()}`);
     }
@@ -150,7 +150,9 @@ const commonMethods = {
 
 We've moved all the methods to another object. It's obvious that the `person` object doesn't know where to find the common methods. So, we need to somehow say to the person object that whenever you need a method, take a look at the `commonMethods` objects. The question is how do we do that?
 
-#### 2.2.1 Introducing `__proto__`
+#### Introducing prototypes and `__proto__`
+
+`prototypes` are JavaScript's way to achieve inheritance. prototypes are a way by which JavaScript objects can inherit features from one another.
 
 Every object in JavaScript gets a special propertly called `__proto__`. Suppose we want to store `user.isMarried` in a variable. The property doesn't exist on the person object. So instead of giving up, JavaScript will try to find it in `__proto__`. So anything if JavaScript is unable to find some property or method in the actual object, it will look into the special property called `__proto__`. 
 
@@ -175,7 +177,7 @@ const commonMethods = {
     },
     isAdult() {
         return this.age >= 18;
-    }
+    },
     greet() {
         console.log(`Hello, my name is ${this.getFullName()}`);
     }
@@ -197,6 +199,96 @@ function sum(a, b) {
 
 sum.myName = "Naimul Haque";
 console.log(sum.myName);
+```
+
+### Constructor Functions
+
+In JavaScript, a constructor function is a special type of function that is used to create and initialize objects. The constructor function is used with the `new` keyword to create instances of objects simillar to how we use classes in other programming languages. Let's try to model a `person` with constructor functions.
+
+```js
+function Person(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+}
+
+// create an instance of the Person
+const person1 = new Person("Naimul", "Haque", 26);
+```
+
+The function `Person` is our constructor function, and when we use the `new` keyword in front of it, it will create an instance everytime we do that.
+
+#### The `new` keyword
+
+The previous code example might be confusing for a lot of people, specially if you try to compare it with other languges. Where does the `this` comes from? What is the value of `this`? How does the person getting returned from the function? We'll all the answers, when we take a look at how the `new` keyword works in JavaScript.
+
+- Creates a new empty object.
+- Sets the object's prototype (`__proto__`) to be the function's prototype.
+- Invokes the constructor function where `this` refers to the empty object that it created.
+- Implicitly returns the object
+
+This is how, the instances are getting created from the Person constructor functions. It's fine if you are not getting the second step in the list, we'll describe it in a moment.
+
+#### Prototype of a Constructor Function
+
+We saw functions are objects. Constructor functions can have a special property called `prototype`. It's an object and when we attach any property to this `prototype` object, the `new` keyword will use this to set the object's `__proto__` to be the constructor function's `prototype`.
+
+```js
+function Person(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+}
+
+Person.prototype = {
+    getFullName() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    isAdult() {
+        return this.age >= 18;
+    },
+    greet() {
+        console.log(`Hello, my name is ${this.getFullName()}`);
+    }
+};
+
+// create an instance of the Person
+const person1 = new Person("Naimul", "Haque", 26);
+```
+
+Now, each time we create a Person instance, the object's `__proto__` will refer to the `Person.prototype`. We can validate the statement with the following code.
+
+```js
+person1.__proto__ === Person.prototype // true
+```
+
+### ES6 Classes
+
+There were not `class` keyword in JavaScript before ES6. The ES6 brings the `class` keyword that everyone is familiar with. It's just a syntatic sugar over the already existing way for creating objects with `constructor functions` or `Object.create()`.
+
+```js
+class Person {
+  constructor(firstName, lastName, age) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  getFullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+
+  isAdult() {
+    return this.age >= 18;
+  }
+
+  greet() {
+    console.log(`Hello, my name is ${this.getFullName()}`);
+  }
+}
+
+// Create an instance of the Person class
+const person1 = new Person("Naimul", "Haque", 26);
 ```
 
 ### Resources
